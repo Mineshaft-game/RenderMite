@@ -1,2 +1,2 @@
-#from libmineshaft import *
+from libmineshaft import *
 import pygame
