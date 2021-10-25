@@ -1,4 +1,4 @@
-#from libmineshaft import * # Currently won't be used
+from libmineshaft import *
 import pygame
 
 class Engine:
