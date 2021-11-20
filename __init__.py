@@ -1,4 +1,4 @@
-import libmineshaft
+import libmineshaft.world
 import pygame
 
 
@@ -8,11 +8,11 @@ class Engine:
         print(f"RenderMite {__version__}")
         self.blockindex = blockindex
 
-    def render(self, screen, world, pos=(0, 0)):
+    def render(self, screen, world: libmineshaft.world.World, pos=(0, 0)):
         for chunk in range(0, 16):
             for subchunk in range(0, 128):
                 for block in range(0, 16):
-                    block = self.blockindex[world[chunk][subchunk][block]]
+                    block = self.blockindex[world.world[chunk][subchunk][block]]
                     if type(block.image) == list:
                         image = pygame.transform.scale(pygame.image.load(block.image))
                         screen.blit(image, ((chunk + block) * 16, subchunk * 16))
