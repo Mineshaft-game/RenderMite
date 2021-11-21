@@ -1,5 +1,6 @@
 import libmineshaft.world
 import pygame
+import os
 
 
 class Engine:
@@ -14,7 +15,7 @@ class Engine:
                 for block in range(0, 16):
                     block = self.blockindex[world.world[chunk][subchunk][block]]
                     if type(block.imagepath) == list:
-                        image = pygame.transform.scale(pygame.image.load(block.imagepath))
+                        image = pygame.transform.scale(pygame.image.load(os.path.join(block.imagepath)))
                         screen.blit(image, ((chunk + block) * 16, subchunk * 16))
                     elif block.image == False:
                         continue
