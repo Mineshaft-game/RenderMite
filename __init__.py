@@ -6,7 +6,7 @@ import os
 class Engine:
     def __init__(self, blockindex):
         self.__version__ = "unknown"
-        print(f"RenderMite v[{self.__version__}]")
+        print(f"RenderMite v[{self.__version__}]") #TODO: Make it hide if the env variable SHOW_RENDER_VERSION is false/0
         self.blockindex = blockindex
 
     def render(self, screen, world: libmineshaft.world.World, pos=(0, 0)):
