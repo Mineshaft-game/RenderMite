@@ -14,8 +14,8 @@ def joinpath(path: list):
 class Engine:
     def __init__(self, blockindex):
         self.__version__ = "unknown"
-        if os.environ["SHOW_RENDER_VERSION"] == "1": #check if the enviroment variable "SHOW_RENDER_VERSION" is set to 1
-            print(f"RenderMite v[{self.__version__}]") #If yes, print the splash
+        #if os.environ["SHOW_RENDER_VERSION"] == "1": #check if the enviroment variable "SHOW_RENDER_VERSION" is set to 1
+        print(f"RenderMite v[{self.__version__}]") #print the splash
         self.blockindex = blockindex 
 
     def render(self, screen, world: libmineshaft.world.World, pos=(0, 0)):
