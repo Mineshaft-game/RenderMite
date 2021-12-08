@@ -29,5 +29,5 @@ class Engine:
                         print (path)
                         image = pygame.transform.scale(pygame.image.load())
                         screen.blit(image, ((chunk + block) * 16, subchunk * 16))
-                    elif block.image == False:
+                    elif block.image is False:
                         continue
