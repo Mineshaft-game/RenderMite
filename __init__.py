@@ -23,7 +23,7 @@ class Engine:
             for subchunk in range(0, 128): #For every subchunk
                 for block in range(0, 16): # for every block
                     block = self.blockindex[world.world[chunk][subchunk][block]]
-                    if type(block.image) == list:
+                    if type(block.image) is list:
                         
                         path = joinpath(block.image)
                         print (path)
