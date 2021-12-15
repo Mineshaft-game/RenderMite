@@ -23,13 +23,13 @@ class Engine:
             for subchunk in range(0, 128): #For every subchunk
                 for block in range(0, 16): # for every block
                     block = self.blockindex[world.world[chunk][subchunk][block]]
-                    if type(block.image) == list:
+                    if type(block.image) is list:
                         
                         path = joinpath(block.image)
                         print (path)
                         image = pygame.transform.scale(pygame.image.load())
                         screen.blit(image, ((chunk + block) * 16, subchunk * 16))
-                    elif block.image == False:
+                    elif block.image is False:
                         continue
                         
                         
