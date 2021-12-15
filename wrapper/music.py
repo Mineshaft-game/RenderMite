@@ -6,8 +6,8 @@ import os
 def init_music():
     if pygame.mixer.get_init() is None:
         pygame.mixer.init()
-        
-        
+
+
 def load_music(pathobj: os.PathLike):
     pygame.mixer.music.load(pathobj)
     
@@ -16,6 +16,9 @@ def play_music():
     
 def stop_music():
     pygame.mixer.music.stop()
+    
+def get_busy():
+    return pygame.mixer.music.get_busy()
     
     
 def unpause_music():
