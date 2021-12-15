@@ -31,3 +31,8 @@ class Engine:
                         screen.blit(image, ((chunk + block) * 16, subchunk * 16))
                     elif block.image == False:
                         continue
+                        
+                        
+
+
+
