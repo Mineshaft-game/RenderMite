@@ -16,6 +16,7 @@ def joinimagepath(path: list, assets_dir: str):
 
 
 # TODO: Make the rendering engine manage the graphics implementation
+# TODO: [PROGRESS] Partially done: Music is implemented
 class Engine:
     def __init__(self, blockindex, assets_dir):
         self.__version__ = __version__
@@ -25,17 +26,10 @@ class Engine:
         self.assets_dir = assets_dir
 
     def render(self, screen, world: libmineshaft.world.World, pos=(0, 0)):
-        for chunk in range(0, 16):  # For every chunk
-            for subchunk in range(0, 128):  # For every subchunk
-                for block in range(0, 16):  # for every block
-                    block = self.blockindex[world.world[chunk][subchunk][block]]
-                    if type(block.image) is list:
-
-                        path = joinimagepath(block.image, self.assets_dir)
-                        print(path)
-                        image = pygame.transform.scale(
-                            pygame.image.load(path), (16, 16)
-                        )
-                        screen.blit(image, (16 * 16, subchunk * 16))
-                    elif block.image is False:
-                        continue
+        for x in range(pos[0] - screen.width()/2):
+            for y in range(pos[1] + screen.width()/2): 
+                pass
+                block_type,  block_data,  x, y=world.database.execute("SELECT * FROM blocks WHERE x=? AND y=?", (x,y))
+                block = self.blockindex[0]()
+                image =  pygame.subsurface(pygame.image.load(os.path.join(self.assets_dir, "terrain.png")), block.imagecoords, (16,16))
+                screen.blit(image, ())
