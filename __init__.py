@@ -22,5 +22,5 @@ class Engine:
                 world.database.execute("SELECT * FROM world WHERE x=? AND y=?", (x,y))
                 block_type,  block_data,  x, y=world.database.fetchall()[0]
                 block = self.blockindex[block_type]()
-                image =  screen.subsurface(pygame.image.load(os.path.join(self.assets_dir, "textures",  "terrain.png")), block.imagecoords, (16,16))
-                screen.blit(image, (pos+x*16,  pos+y*16))
+                image =  pygame.image.load(os.path.join(self.assets_dir, "textures",  "terrain.png")).subsurface(block.imagecoords, (16,16))
+                screen.blit(image, (pos[0]+x*16,  pos[1]+y*16))
