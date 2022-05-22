@@ -19,7 +19,7 @@ class Engine:
     def render(self, screen, world: libmineshaft.world.World, pos=(0, 0)):
         for x in range(0, 256):
             for y in range(0, 128): 
-                block_type,  block_data,  x, y=world.database.execute("SELECT * FROM world WHERE x=? AND y=?", (x,y))
+                block_type,  block_data,  x, y=world.database.execute("SELECT * FROM world WHERE x=? AND y=?", (x,y))[0]
                 block = self.blockindex[block_type]()
                 image =  pygame.subsurface(pygame.image.load(os.path.join(self.assets_dir, "terrain.png")), block.imagecoords, (16,16))
                 screen.blit(image, (pos+x*16,  pos+y*16))
