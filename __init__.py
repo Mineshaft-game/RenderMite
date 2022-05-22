@@ -17,8 +17,8 @@ class Engine:
         self.assets_dir = assets_dir
 
     def render(self, screen, world: libmineshaft.world.World, pos=(0, 0)):
-        for x in range(pos[0] - screen.get_width()/2):
-            for y in range(pos[1] + screen.get_height()/2): 
+        for x in range(0, 256):
+            for y in range(0, 128): 
                 block_type,  block_data,  x, y=world.database.execute("SELECT * FROM blocks WHERE x=? AND y=?", (x,y))
                 block = self.blockindex[block_type]()
                 image =  pygame.subsurface(pygame.image.load(os.path.join(self.assets_dir, "terrain.png")), block.imagecoords, (16,16))
