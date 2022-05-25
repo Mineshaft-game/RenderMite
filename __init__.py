@@ -17,8 +17,8 @@ class Engine:
         self.assets_dir = assets_dir
 
     def render(self, screen, world: libmineshaft.world.World, pos=(0, 0)):
-        for x in range(0, 256):
-            for y in range(0, 128): 
+        for x in range(0, 16):
+            for y in range(0, 16): 
                 world.database.execute("SELECT * FROM world WHERE x=? AND y=?", (x,y))
                 block_type,  block_data,  x, y=world.database.fetchall()[0]
                 block = self.blockindex[block_type]()
