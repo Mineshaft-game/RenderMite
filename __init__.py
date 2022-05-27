@@ -9,12 +9,12 @@ import os
 # TODO: Make the rendering engine manage the graphics implementation
 # TODO: [PROGRESS] Partially done: Music is implemented
 class Engine:
-    def __init__(self, blockindex, assets_dir):
+    def __init__(self, block_index, image_index):
         self.__version__ = __version__
         #if os.environ["SHOW_RENDER_VERSION"] == "1": #check if the enviroment variable "SHOW_RENDER_VERSION" is set to 1
         print(f"RenderMite v[{self.__version__}]")  # print the splash
-        self.blockindex = blockindex
-        self.assets_dir = assets_dir
+        self.block_index = block_index
+        self.image_index= image_index
 
     def render(self, screen, world: libmineshaft.world.World, pos=(0, 0)):
         for x in range(0, 16):
