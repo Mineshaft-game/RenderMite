@@ -1,4 +1,4 @@
-__version__ = "unknown"
+__version__ = "rm-240522"
 
 
 import libmineshaft.world
@@ -19,8 +19,7 @@ class Engine:
     def render(self, screen, world: libmineshaft.world.World, pos=(0, 0)):
         for x in range(0, 16):
             for y in range(0, 16): 
-                world.database.execute("SELECT * FROM world WHERE x=? AND y=?", (x,y))
-                block_type,  block_data,  x, y=world.database.fetchall()[0]
-                block = self.blockindex[block_type]()
+                block_contents = world.world[f"{x},{y}"].value
+                block = self.blockindex[block_contents["block_id"].value]()
                 image =  pygame.image.load(os.path.join(self.assets_dir, "textures",  "terrain.png")).subsurface(block.imagecoords, (16,16))
                 screen.blit(image, (pos[0]+x*16,  pos[1]+y*16))
